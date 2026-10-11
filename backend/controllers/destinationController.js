@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Destination = require('../models/Destination');
 
 // @desc    Get all published destinations (or all for admin)
@@ -30,12 +31,37 @@ const getDestinations = async (req, res, next) => {
   }
 };
 
-// @desc    Get single destination by slug
+// @desc    Get single destination by slug or ID
 // @route   GET /api/destinations/:slug
 // @access  Public
 const getDestinationBySlug = async (req, res, next) => {
   try {
-    const destination = await Destination.findOne({ slug: req.params.slug });
+    const rawParam = (req.params.slug || '').trim();
+    const slugParam = rawParam.toLowerCase();
+
+    // 1. Try exact slug match
+    let destination = await Destination.findOne({ slug: slugParam });
+
+    // 2. Try by MongoDB ObjectId
+    if (!destination && mongoose.Types.ObjectId.isValid(rawParam)) {
+      destination = await Destination.findById(rawParam);
+    }
+
+    // 3. Try case-insensitive slug regex
+    if (!destination) {
+      destination = await Destination.findOne({
+        slug: { $regex: new RegExp(`^${slugParam}$`, 'i') }
+      });
+    }
+
+    // 4. Try name match (e.g. mullayanagiri-peak -> Mullayanagiri Peak)
+    if (!destination) {
+      const nameGuess = slugParam.replace(/[-_]+/g, ' ');
+      destination = await Destination.findOne({
+        name: { $regex: new RegExp(nameGuess, 'i') }
+      });
+    }
+
     if (!destination) {
       return res.status(404).json({ success: false, message: 'Destination not found' });
     }

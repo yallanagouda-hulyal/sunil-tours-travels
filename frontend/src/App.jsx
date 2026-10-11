@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Common Public Components
 import Navbar from './components/common/Navbar';
@@ -67,6 +67,16 @@ const App = () => {
         />
         <Route
           path="/destinations/:slug"
+          element={
+            <PublicLayout onOpenBooking={handleOpenBooking}>
+              <DestinationDetail onOpenBooking={handleOpenBooking} />
+            </PublicLayout>
+          }
+        />
+        {/* Singular URL aliases */}
+        <Route path="/destination" element={<Navigate to="/destinations" replace />} />
+        <Route
+          path="/destination/:slug"
           element={
             <PublicLayout onOpenBooking={handleOpenBooking}>
               <DestinationDetail onOpenBooking={handleOpenBooking} />

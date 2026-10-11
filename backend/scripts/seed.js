@@ -152,6 +152,39 @@ const seedData = async () => {
         additionalFees: 'Free entry',
         published: true,
         featured: true
+      },
+      {
+        name: 'Kalhatti Falls',
+        slug: 'kalhattagiri-waterfalls',
+        category: 'Waterfalls',
+        description: 'Cascading waters falling over ancient rock-cut Veerabhadra temple near Kemmanagundi hill station surrounded by verdant hill scenery.',
+        mainImage: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Kallathigiri_falls_%2828204534956%29.jpg',
+        gallery: [
+          'https://upload.wikimedia.org/wikipedia/commons/0/04/Kallathigiri_falls_%2828204534956%29.jpg'
+        ],
+        location: 'Kemmanagundi (55 km)',
+        duration: '2 Hours',
+        visitorInfo: 'Temple pujas conducted regularly. Wear comfortable footwear for walking on wet rocks.',
+        additionalFees: 'Entry is free',
+        published: true,
+        featured: false
+      },
+      {
+        name: '4x4 Off-Road Jeep Trek',
+        slug: 'off-road-jeep-trek',
+        category: 'Adventure',
+        description: 'Thrilling 4x4 off-road jeep safari through rugged Western Ghats trails, coffee estates, stream crossings, and panoramic mountain viewpoints.',
+        mainImage: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
+        gallery: [
+          'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80'
+        ],
+        location: 'Western Ghats Trails',
+        duration: '3-5 Hours',
+        visitorInfo: 'Handled by seasoned local four-wheel-drive mountaineering drivers. Early reservations advised for weekend batches and holiday rush.',
+        additionalFees: 'Package includes vehicle & driver. Local checkpoint entries payable if applicable.',
+        published: true,
+        featured: true
       }
     ];
     await Destination.insertMany(destinations);

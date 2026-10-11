@@ -3,84 +3,10 @@ import { Link } from 'react-router-dom';
 import { Search, MapPin, Clock, ArrowRight, MessageSquare } from 'lucide-react';
 import API from '../services/api';
 import { openWhatsApp, buildDestinationWhatsAppMessage } from '../utils/whatsapp';
-
-const defaultLandmarks = [
-  {
-    _id: '1',
-    name: 'Mullayanagiri Peak',
-    category: 'Nature',
-    subCategory: 'Viewpoints',
-    tags: ['nature', 'viewpoints', 'adventure'],
-    location: 'Chikkamagaluru (22 km)',
-    duration: '2-3 Hours',
-    description: 'Highest peak in Karnataka standing tall at 1,930m. Enjoy panoramic green mountain ridges, misty valleys, and serene temple views.',
-    mainImage: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Mullayanagiri_Peak_%288322117350%29.jpg',
-    slug: 'mullayanagiri-peak'
-  },
-  {
-    _id: '2',
-    name: 'Hebbe Waterfalls',
-    category: 'Waterfalls',
-    subCategory: 'Nature',
-    tags: ['waterfalls', 'nature', 'adventure'],
-    location: 'Kemmanagundi (65 km)',
-    duration: '3-4 Hours',
-    description: 'Spectacular 2-stage waterfall cascading 168 meters inside dense coffee estate rainforests, reachable via 4x4 jeep trek.',
-    mainImage: 'https://upload.wikimedia.org/wikipedia/commons/a/ad/Hebbe_falls%2C_Chikmagalur%2C_Karnataka.jpg',
-    slug: 'hebbe-waterfalls'
-  },
-  {
-    _id: '3',
-    name: 'Belur Chennakeshava Temple',
-    category: 'Heritage',
-    subCategory: 'Temples',
-    tags: ['heritage', 'temples'],
-    location: 'Belur, Hassan (26 km)',
-    duration: '2 Hours',
-    description: 'Famed 12th-century star-shaped stone temple on the Yagachi River, renowned for detailed Hoysala architectural carvings.',
-    mainImage: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Chennakeshava_Temple_at_Belur.jpg',
-    slug: 'belur-chennakeshava-temple'
-  },
-  {
-    _id: '4',
-    name: 'Halebidu Hoysaleswara Temple',
-    category: 'Heritage',
-    subCategory: 'Temples',
-    tags: ['heritage', 'temples'],
-    location: 'Halebidu (31 km)',
-    duration: '2 Hours',
-    description: 'Intricately carved twin Hoysala temple dedicated to Lord Shiva with ancient mythological relief friezes and sculptures.',
-    mainImage: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Hoysaleswara_temple%2C_Halebidu.jpg',
-    slug: 'halebidu-hoysaleswara-temple'
-  },
-  {
-    _id: '5',
-    name: 'Kalhatti Falls',
-    category: 'Waterfalls',
-    subCategory: 'Nature',
-    tags: ['waterfalls', 'nature', 'temples'],
-    location: 'Kemmanagundi (55 km)',
-    duration: '2 Hours',
-    description: 'Cascading waters falling over ancient rock-cut Veerabhadra temple near Kemmanagundi hill station.',
-    mainImage: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Kallathigiri_falls_%2828204534956%29.jpg',
-    slug: 'kalhattagiri-waterfalls'
-  },
-  {
-    _id: '6',
-    name: '4x4 Off-Road Jeep Trek',
-    category: 'Adventure',
-    subCategory: 'Nature',
-    tags: ['adventure', 'nature'],
-    location: 'Western Ghats Trails',
-    duration: '3-5 Hours',
-    description: 'Thrilling 4x4 off-road jeep safari through rugged Western Ghats trails, coffee estates, and mountain viewpoints.',
-    mainImage: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80',
-    slug: 'kemmanagundi-z-point'
-  }
-];
+import { defaultDestinations } from '../data/destinationsData';
 
 const Destinations = () => {
-  const [destinations, setDestinations] = useState(defaultLandmarks);
+  const [destinations, setDestinations] = useState(defaultDestinations);
   const [category, setCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -261,7 +187,7 @@ const Destinations = () => {
               >
                 <div>
                   {/* Photo Header with Zoom & Gradient Overlay */}
-                  <Link to={`/destinations/${item.slug}`} style={{ display: 'block', textDecoration: 'none' }}>
+                  <Link to={`/destinations/${item.slug || item._id}`} style={{ display: 'block', textDecoration: 'none' }}>
                     <div className="img-zoom-container" style={{ height: '230px', position: 'relative', overflow: 'hidden' }}>
                       <img
                         src={item.mainImage}
@@ -310,7 +236,7 @@ const Destinations = () => {
                   <div style={{ padding: '22px 22px 16px' }}>
                     
                     {/* Title */}
-                    <Link to={`/destinations/${item.slug}`} style={{ textDecoration: 'none' }}>
+                    <Link to={`/destinations/${item.slug || item._id}`} style={{ textDecoration: 'none' }}>
                       <h3
                         className="glancey-card-title"
                         style={{
@@ -386,7 +312,7 @@ const Destinations = () => {
                   
                   {/* View Details Primary Button */}
                   <Link
-                    to={`/destinations/${item.slug}`}
+                    to={`/destinations/${item.slug || item._id}`}
                     className="glancey-btn-main"
                     style={{
                       flex: 1,
