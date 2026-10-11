@@ -28,7 +28,33 @@ const getPackages = async (req, res, next) => {
     }
 
     if (category && category !== 'All') {
-      filter.category = category;
+      const targetCat = category.toLowerCase().trim();
+      if (targetCat === 'group') {
+        filter.$or = [
+          { category: { $in: ['Group', 'Student', 'Corporate', /group/i, /student/i, /corporate/i] } },
+          { categories: { $in: ['Group', 'Student', 'Corporate'] } },
+          { name: { $regex: 'group|student|corporate', $options: 'i' } }
+        ];
+      } else if (targetCat === 'adventure') {
+        filter.$or = [
+          { category: { $in: ['Adventure', /adventure/i] } },
+          { categories: 'Adventure' },
+          { name: { $regex: 'adventure', $options: 'i' } },
+          { description: { $regex: 'jeep|trek|adventure|safari', $options: 'i' } }
+        ];
+      } else if (targetCat === 'sightseeing') {
+        filter.$or = [
+          { category: { $regex: '^sightseeing$', $options: 'i' } },
+          { categories: 'Sightseeing' },
+          { name: { $regex: '^day', $options: 'i' } }
+        ];
+      } else {
+        filter.$or = [
+          { category: { $regex: `^${category}$`, $options: 'i' } },
+          { categories: { $regex: `^${category}$`, $options: 'i' } },
+          { name: { $regex: category, $options: 'i' } }
+        ];
+      }
     }
 
     if (search) {
@@ -135,6 +161,7 @@ const createPackage = async (req, res, next) => {
       duration,
       description,
       category: category || 'Sightseeing',
+      categories: req.body.categories || (category ? [category] : ['Sightseeing']),
       price,
       priceLabel: priceLabel || 'Vehicle charges',
       dayWiseItinerary: dayWiseItinerary || [],

@@ -4,10 +4,11 @@ import { ArrowRight, CheckCircle2, XCircle, MessageSquare, Compass, ShieldAlert,
 import PricingDisclaimer from '../components/common/PricingDisclaimer';
 import API from '../services/api';
 import { openWhatsApp, buildPackageWhatsAppMessage } from '../utils/whatsapp';
+import { defaultPackages, matchPackageCategory, getSerialWeight } from '../data/packagesData';
 
 const Packages = ({ onOpenBooking }) => {
-  const [packages, setPackages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [packages, setPackages] = useState(defaultPackages);
+  const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const navigate = useNavigate();
 
@@ -21,32 +22,18 @@ const Packages = ({ onOpenBooking }) => {
     { key: 'Custom', label: 'Custom Day' }
   ];
 
-  // Helper function to calculate strict serial weight
-  const getSerialWeight = (pkg) => {
-    const slug = (pkg.slug || '').toLowerCase();
-    const name = (pkg.name || '').toLowerCase();
-    if (slug === 'day-1' || name.startsWith('day 1')) return 1;
-    if (slug === 'day-2' || name.startsWith('day 2')) return 2;
-    if (slug === 'day-3' || name.startsWith('day 3')) return 3;
-    if (slug === 'day-4' || name.startsWith('day 4')) return 4;
-    if (slug.includes('3-day') || name.includes('3-day') || name.includes('complete')) return 5;
-    if (pkg.category === 'Student' || name.includes('student')) return 6;
-    if (pkg.category === 'Corporate' || name.includes('corporate')) return 7;
-    return 10;
-  };
-
   useEffect(() => {
     const fetchPackages = async () => {
       try {
         const res = await API.get('/packages');
-        if (res.success) {
-          const rawPackages = res.packages || [];
+        if (res.success && res.packages && res.packages.length > 0) {
+          const rawPackages = [...res.packages];
           // Guarantee strict serial order: Day 1 -> Day 2 -> Day 3 -> Day 4
           rawPackages.sort((a, b) => getSerialWeight(a) - getSerialWeight(b));
           setPackages(rawPackages);
         }
       } catch (err) {
-        console.error('Error fetching packages:', err);
+        console.warn('API unavailable for packages, using authentic local dataset:', err?.message || err);
       } finally {
         setLoading(false);
       }
@@ -54,9 +41,9 @@ const Packages = ({ onOpenBooking }) => {
     fetchPackages();
   }, []);
 
-  const filtered = selectedCategory === 'All' 
-    ? packages 
-    : packages.filter(p => p.category === selectedCategory);
+  const filtered = packages
+    .filter((p) => matchPackageCategory(p, selectedCategory))
+    .sort((a, b) => getSerialWeight(a) - getSerialWeight(b));
 
   const handleCardClick = (e, slug) => {
     if (e.target.closest('button') || e.target.closest('a')) {

@@ -199,6 +199,7 @@ const seedData = async () => {
         duration: 'Full Day (8-9 Hours)',
         description: 'Explore Karnataka’s highest peak Mullayanagiri, adventure zipline, Jhari waterfalls via 4x4 off-road jeep, Honnamanahalla falls, Shooting Point, Bababudangiri caves, and Z Point trek.',
         category: 'Sightseeing',
+        categories: ['Sightseeing', 'Adventure'],
         price: 3500,
         priceLabel: 'Vehicle charges',
         dayWiseItinerary: [
@@ -295,6 +296,7 @@ const seedData = async () => {
         duration: 'Full Day (9-10 Hours)',
         description: 'Visit Siri Cafe statue landmark, Devaramane temple viewpoint, Kalhatti falls, Kemmanagundi Raj Bhavan gardens, Z Point trail, and Hebbe falls estate jeep safari.',
         category: 'Sightseeing',
+        categories: ['Sightseeing', 'Adventure'],
         price: 4000,
         priceLabel: 'Vehicle charges',
         dayWiseItinerary: [
@@ -374,6 +376,7 @@ const seedData = async () => {
         duration: 'Full Day (7-8 Hours)',
         description: 'Discover world-famous 12th-century Hoysala stone architecture at Hiremagalur, Belur Chennakeshava, Halebidu Hoysaleswara, and Belavadi temples along with Yagachi Dam water sports.',
         category: 'Sightseeing',
+        categories: ['Sightseeing', 'Group'],
         price: 3500,
         priceLabel: 'Vehicle charges',
         dayWiseItinerary: [
@@ -453,6 +456,7 @@ const seedData = async () => {
         duration: 'Full Day (Flexible Hours)',
         description: 'Tailor your own custom sightseeing plan across Chikkamagaluru, coffee plantation estates, off-road mountain jeep trails, or shopping markets.',
         category: 'Custom',
+        categories: ['Custom', 'Adventure', 'Sightseeing'],
         price: 3500,
         priceLabel: 'Vehicle charges',
         dayWiseItinerary: [
@@ -512,6 +516,7 @@ const seedData = async () => {
         duration: '2-3 Days',
         description: 'Budget-friendly group travel package for college and school trips with 50-seater luxury bus hire, campfire, trekking & sightseeing.',
         category: 'Student',
+        categories: ['Student', 'Group', 'Adventure'],
         price: 950,
         priceLabel: 'Per student (approx for large groups)',
         dayWiseItinerary: [
@@ -557,6 +562,7 @@ const seedData = async () => {
         duration: '2 Days / 1 Night',
         description: 'Tailored corporate getaway package with doorstep Bangalore/Mysore pickup, 10/50-seater transport, 3-star lodge/resort stay assistance & team trekking.',
         category: 'Corporate',
+        categories: ['Corporate', 'Group', 'Adventure'],
         price: 2500,
         priceLabel: 'Per person (Customizable)',
         dayWiseItinerary: [

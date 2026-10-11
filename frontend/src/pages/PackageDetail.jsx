@@ -19,33 +19,48 @@ import PricingDisclaimer from '../components/common/PricingDisclaimer';
 import ImageLightbox from '../components/common/ImageLightbox';
 import API from '../services/api';
 import { openWhatsApp, buildPackageWhatsAppMessage } from '../utils/whatsapp';
+import { findPackage } from '../data/packagesData';
 
 const PackageDetail = ({ onOpenBooking }) => {
   const { slug } = useParams();
-  const [pkg, setPkg] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedGalleryImg, setSelectedGalleryImg] = useState(null);
+  const initialLocalPkg = findPackage(slug);
+  const [pkg, setPkg] = useState(initialLocalPkg || null);
+  const [loading, setLoading] = useState(!initialLocalPkg);
+  const [selectedGalleryImg, setSelectedGalleryImg] = useState(initialLocalPkg?.gallery?.[0] || null);
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   useEffect(() => {
-    const fetchPackage = async () => {
+    window.scrollTo(0, 0);
+
+    const localMatch = findPackage(slug);
+    if (localMatch) {
+      setPkg(localMatch);
+      if (localMatch.gallery && localMatch.gallery.length > 0) {
+        setSelectedGalleryImg(localMatch.gallery[0]);
+      }
+      setLoading(false);
+    } else {
       setLoading(true);
+    }
+
+    const fetchPackage = async () => {
       try {
         const res = await API.get(`/packages/${slug}`);
-        if (res.success) {
+        if (res.success && res.package) {
           setPkg(res.package);
           if (res.package.gallery && res.package.gallery.length > 0) {
             setSelectedGalleryImg(res.package.gallery[0]);
           }
         }
       } catch (err) {
-        console.error('Error fetching package details:', err);
+        if (!localMatch) {
+          console.warn('API error fetching package details:', err?.message || err);
+        }
       } finally {
         setLoading(false);
       }
     };
     fetchPackage();
-    window.scrollTo(0, 0);
   }, [slug]);
 
   if (loading) {

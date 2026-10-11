@@ -25,6 +25,7 @@ const packageSchema = new mongoose.Schema({
     enum: ['Sightseeing', 'Group', 'Student', 'Corporate', 'Adventure', 'Custom'], 
     default: 'Sightseeing' 
   },
+  categories: [{ type: String }],
   price: { type: Number, required: true }, // Rate e.g. 3500
   priceLabel: { type: String, default: 'Vehicle charges' }, // "Vehicle charges", "Per Person"
   dayWiseItinerary: [dayItinerarySchema],
