@@ -1,0 +1,298 @@
+/* ==========================================================================
+   PREMIUM JEEP ADVENTURE SECTION STYLES
+   Sunil Tours N Travels | Chikkamagaluru
+   ========================================================================== */
+
+.jeep-adventure-section {
+  position: relative;
+  background-color: var(--color-dark-bg);
+  background: linear-gradient(135deg, #091711 0%, #0F2D1F 50%, #123C2A 100%);
+  color: var(--color-warm-ivory);
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.jeep-adventure-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 48% 44%;
+  gap: 8%;
+  align-items: center;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: JEEP IMAGE & FLOATING BADGE
+   ========================================================================== */
+
+.jeep-left-column {
+  width: 100%;
+  position: relative;
+}
+
+.jeep-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: #0F2D1F;
+}
+
+.jeep-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.jeep-image-wrapper:hover .jeep-main-image {
+  transform: scale(1.06);
+}
+
+/* Floating Yellow Badge */
+.jeep-floating-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  background-color: var(--color-adventure-yellow);
+  color: var(--color-primary-green-dark);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transform: rotate(-4deg);
+  animation: floatGentleBadge 4s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
+}
+
+.badge-sparkle-icon {
+  fill: var(--color-primary-green-dark);
+  color: var(--color-primary-green-dark);
+}
+
+@keyframes floatGentleBadge {
+  0%, 100% {
+    transform: rotate(-4deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(-4deg) translateY(-6px);
+  }
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: CONTENT & CTAS
+   ========================================================================== */
+
+.jeep-right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Eyebrow Badge */
+.jeep-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(18, 60, 42, 0.6);
+  border: 1px solid rgba(255, 212, 41, 0.45);
+  padding: 6px 18px;
+  border-radius: 30px;
+  color: var(--color-adventure-yellow);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  align-self: flex-start;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Heading */
+.jeep-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 3.8vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.heading-line-ivory {
+  color: var(--color-warm-ivory);
+  display: block;
+}
+
+.heading-line-yellow {
+  color: var(--color-adventure-yellow);
+  display: block;
+}
+
+/* Description */
+.jeep-description {
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  color: #CBD8D2;
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+
+/* 2-Column Feature List */
+.jeep-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  margin-bottom: 36px;
+}
+
+.jeep-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.25s ease;
+}
+
+.jeep-feature-item:hover {
+  transform: translateX(4px);
+}
+
+.jeep-check-icon {
+  color: var(--color-adventure-yellow);
+  stroke-width: 3px;
+  flex-shrink: 0;
+}
+
+.jeep-feature-emoji {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.jeep-feature-text {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-warm-ivory);
+  letter-spacing: 0.2px;
+}
+
+/* Large Yellow WhatsApp Enquiry Button */
+.jeep-cta-wrapper {
+  display: flex;
+}
+
+.jeep-whatsapp-btn {
+  background-color: var(--color-adventure-yellow);
+  color: var(--color-primary-green-dark);
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 18px 38px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 25px rgba(255, 212, 41, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.jeep-whatsapp-btn:hover {
+  background-color: #FFE055;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 212, 41, 0.6);
+}
+
+.jeep-whatsapp-btn:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+.cta-chat-icon {
+  stroke-width: 2.2px;
+  transition: transform 0.25s ease;
+}
+
+.jeep-whatsapp-btn:hover .cta-chat-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .jeep-adventure-container {
+    max-width: 1100px;
+    gap: 5%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .jeep-adventure-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 0 24px;
+  }
+  .jeep-heading {
+    font-size: 2.4rem;
+  }
+  .jeep-whatsapp-btn {
+    padding: 16px 32px;
+    font-size: 0.98rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .jeep-adventure-section {
+    padding: 60px 0;
+  }
+  .jeep-adventure-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .jeep-image-wrapper {
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+  }
+  .jeep-floating-badge {
+    top: 16px;
+    right: 16px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+  }
+  .jeep-heading {
+    font-size: 2.1rem;
+  }
+  .jeep-features-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .jeep-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jeep-floating-badge {
+    animation: none !important;
+  }
+  .jeep-main-image {
+    transition: none !important;
+  }
+  .jeep-feature-item {
+    transition: none !important;
+  }
+}

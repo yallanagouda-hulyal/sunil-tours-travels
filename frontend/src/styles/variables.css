@@ -1,0 +1,44 @@
+:root {
+  /* Primary Brand Colors */
+  --color-primary-green: #123C2A;
+  --color-primary-green-dark: #0B271B;
+  --color-primary-green-light: #1E543C;
+  --color-primary-green-rgb: 18, 60, 42;
+
+  --color-adventure-yellow: #FFD429;
+  --color-adventure-yellow-hover: #E6BD1C;
+  --color-adventure-yellow-rgb: 255, 212, 41;
+
+  --color-warm-ivory: #F7F4E9;
+  --color-warm-ivory-dark: #EAE3D2;
+  --color-warm-ivory-rgb: 247, 244, 233;
+
+  /* Neutral Colors */
+  --color-dark-bg: #091711;
+  --color-dark-card: #11241C;
+  --color-text-main: #1C2723;
+  --color-text-muted: #56645E;
+  --color-text-light: #F7F4E9;
+  --color-white: #FFFFFF;
+
+  /* Glassmorphism Variables */
+  --glass-bg-dark: rgba(18, 60, 42, 0.85);
+  --glass-bg-light: rgba(247, 244, 233, 0.88);
+  --glass-border-light: rgba(255, 255, 255, 0.25);
+  --glass-border-dark: rgba(18, 60, 42, 0.15);
+  --glass-backdrop-blur: blur(14px);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  /* Typography */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* Radius & Transitions */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
