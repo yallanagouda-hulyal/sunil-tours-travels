@@ -224,6 +224,45 @@
   transform: none;
 }
 
+.contact-info-row {
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .contact-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 14px;
+  }
+}
+
+.contact-phone-display {
+  font-size: clamp(1.05rem, 4vw, 1.25rem) !important;
+  font-weight: 800;
+  word-break: break-word;
+}
+
+.contact-email-display {
+  font-size: clamp(0.78rem, 3.2vw, 0.92rem) !important;
+  font-weight: 800;
+  word-break: break-all;
+}
+
+.contact-cta-btn {
+  white-space: normal !important;
+  word-break: normal !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
 /* ==========================================================================
    HELP & LOCATION SECTION
    ========================================================================== */
@@ -289,17 +328,123 @@
   }
 }
 
+@media (max-width: 992px) {
+  .contact-split-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .contact-left-col {
+    width: 100%;
+  }
+  .contact-right-col {
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
+  .contact-hero-section {
+    padding: 36px 0 44px;
+  }
+  .contact-main-section {
+    padding: 45px 0 100px; /* Safe clearance for mobile floating action buttons */
+  }
+  .contact-help-section {
+    padding: 45px 0 100px;
+  }
   .contact-cards-grid {
     grid-template-columns: 1fr;
   }
   .contact-form-wrapper {
     padding: 24px 18px;
+    border-radius: 20px;
+  }
+  /* Force all contact form fields to single full-width column on mobile */
+  .contact-form-wrapper .grid-2,
+  .contact-form-wrapper .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .contact-info-card-left {
+    padding: 22px 18px;
+    border-radius: 20px;
   }
   .help-gallery-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
   .help-gallery-card {
     height: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero-container {
+    padding: 0 16px;
+  }
+  .contact-hero-section {
+    padding: 28px 0 36px;
+  }
+  .contact-hero-heading {
+    font-size: clamp(1.85rem, 6vw, 2.3rem);
+    margin-bottom: 12px;
+  }
+  .contact-hero-description {
+    font-size: 0.94rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .contact-hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto 24px;
+    gap: 10px;
+  }
+  .contact-hero-cta-group > * {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 12px 18px !important;
+  }
+  .contact-service-highlights {
+    gap: 6px;
+  }
+  .contact-highlight-pill {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+  }
+  .contact-form-wrapper {
+    padding: 20px 14px;
+    border-radius: 16px;
+  }
+  .contact-info-card-left {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+  .contact-submit-btn {
+    padding: 14px 18px;
+    font-size: 0.96rem;
+    border-radius: 24px;
+  }
+  .help-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .help-gallery-card {
+    height: 110px;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-hero-container {
+    padding: 0 12px;
+  }
+  .help-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .contact-form-wrapper {
+    padding: 16px 12px;
   }
 }

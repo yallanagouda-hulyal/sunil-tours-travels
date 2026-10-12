@@ -168,6 +168,7 @@ Please share the itinerary, final vehicle charges, availability, and booking det
               <button
                 type="button"
                 onClick={() => openWhatsApp('Hello Sunil Tours N Travels, I would like to plan a trip to Chikkamagaluru.')}
+                className="contact-cta-btn"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -189,6 +190,7 @@ Please share the itinerary, final vehicle charges, availability, and booking det
 
               <a
                 href="tel:+918197007359"
+                className="contact-cta-btn"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -239,7 +241,7 @@ Please share the itinerary, final vehicle charges, availability, and booking det
          2. MAIN CONTACT SECTION (LEFT STACKED CARDS & RIGHT ENQUIRY FORM)
          ========================================================================== */}
       <section className="contact-main-section" id="enquiry-form">
-        <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
+        <div className="container" style={{ maxWidth: '1440px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 45px' }}>
             <span
@@ -300,14 +302,14 @@ Please share the itinerary, final vehicle charges, availability, and booking det
                   </div>
                 </div>
 
-                <div style={{ background: '#F7F4E9', borderRadius: '14px', padding: '12px 16px', marginBottom: '18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div className="contact-info-row" style={{ background: '#F7F4E9' }}>
                   <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#52645C', textTransform: 'uppercase' }}>Phone Number</span>
-                  <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#123C2A' }}>{displayPhone}</span>
+                  <span className="contact-phone-display" style={{ fontSize: '1.25rem', fontWeight: 800, color: '#123C2A' }}>{displayPhone}</span>
                 </div>
 
                 <a
                   href="tel:+918197007359"
-                  className="glancey-btn-main"
+                  className="glancey-btn-main contact-cta-btn"
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -359,14 +361,15 @@ Please share the itinerary, final vehicle charges, availability, and booking det
                   </div>
                 </div>
 
-                <div style={{ background: 'rgba(37, 211, 102, 0.08)', borderRadius: '14px', padding: '12px 16px', marginBottom: '18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div className="contact-info-row" style={{ background: 'rgba(37, 211, 102, 0.08)' }}>
                   <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#166534', textTransform: 'uppercase' }}>WhatsApp Number</span>
-                  <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#25D366' }}>{displayPhone}</span>
+                  <span className="contact-phone-display" style={{ fontSize: '1.25rem', fontWeight: 800, color: '#25D366' }}>{displayPhone}</span>
                 </div>
 
                 <button
                   type="button"
                   onClick={() => openWhatsApp('Hello Sunil Tours N Travels, I would like to chat regarding tour packages and vehicle hire.')}
+                  className="contact-cta-btn"
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -418,13 +421,14 @@ Please share the itinerary, final vehicle charges, availability, and booking det
                   </div>
                 </div>
 
-                <div style={{ background: 'rgba(234, 67, 53, 0.08)', borderRadius: '14px', padding: '12px 16px', marginBottom: '18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div className="contact-info-row" style={{ background: 'rgba(234, 67, 53, 0.08)' }}>
                   <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#C5221F', textTransform: 'uppercase' }}>Email Address</span>
-                  <span style={{ fontSize: '0.92rem', fontWeight: 800, color: '#EA4335' }}>suniltoursckm@gmail.com</span>
+                  <span className="contact-email-display" style={{ fontSize: '0.92rem', fontWeight: 800, color: '#EA4335' }}>suniltoursckm@gmail.com</span>
                 </div>
 
                 <a
                   href="mailto:suniltoursckm@gmail.com?subject=Chikkamagaluru%20Tour%20Enquiry"
+                  className="contact-cta-btn"
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -769,7 +773,7 @@ Please share the itinerary, final vehicle charges, availability, and booking det
          4. HELP AND LOCATION SECTION ("How Can We Help?")
          ========================================================================== */}
       <section className="contact-help-section" style={{ background: '#F7F4E9', padding: '80px 0' }}>
-        <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
+        <div className="container" style={{ maxWidth: '1440px', margin: '0 auto' }}>
           
           <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 45px' }}>
             <span
@@ -885,8 +889,9 @@ Please share the itinerary, final vehicle charges, availability, and booking det
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                   <a
                     href="tel:+918197007359"
+                    className="contact-cta-btn"
                     style={{
-                      flex: 1,
+                      flex: '1 1 140px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -905,8 +910,9 @@ Please share the itinerary, final vehicle charges, availability, and booking det
                   <button
                     type="button"
                     onClick={() => openWhatsApp('Hello Sunil Tours N Travels, I need quick assistance regarding trip booking.')}
+                    className="contact-cta-btn"
                     style={{
-                      flex: 1,
+                      flex: '1 1 140px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',

@@ -20,6 +20,7 @@ import ImageLightbox from '../components/common/ImageLightbox';
 import API from '../services/api';
 import { openWhatsApp, buildPackageWhatsAppMessage } from '../utils/whatsapp';
 import { findPackage } from '../data/packagesData';
+import './PackageDetail.css';
 
 const PackageDetail = ({ onOpenBooking }) => {
   const { slug } = useParams();
@@ -101,16 +102,9 @@ const PackageDetail = ({ onOpenBooking }) => {
     <div>
       {/* 1. HERO HEADER WITH HD LANDSCAPE IMAGE */}
       <section
+        className="package-hero-section"
         style={{
-          position: 'relative',
-          minHeight: '440px',
-          backgroundImage: `linear-gradient(180deg, rgba(9, 23, 17, 0.45) 0%, rgba(9, 23, 17, 0.85) 100%), url("${selectedGalleryImg || pkg.image}")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          display: 'flex',
-          alignItems: 'flex-end',
-          color: 'var(--color-warm-ivory)',
-          padding: '60px 0 36px'
+          backgroundImage: `linear-gradient(180deg, rgba(9, 23, 17, 0.45) 0%, rgba(9, 23, 17, 0.85) 100%), url("${selectedGalleryImg || pkg.image}")`
         }}
       >
         <div className="container">
@@ -140,21 +134,26 @@ const PackageDetail = ({ onOpenBooking }) => {
             <span className="badge badge-green" style={{ fontSize: '0.85rem', fontWeight: 700 }}>
               📍 {pkg.category} Package
             </span>
+            {pkg.price && (
+              <span className="badge badge-yellow" style={{ fontSize: '0.85rem', fontWeight: 800 }}>
+                🏷️ ₹{pkg.price.toLocaleString()} / Vehicle
+              </span>
+            )}
           </div>
 
-          <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', fontWeight: 800, textShadow: '0 4px 15px rgba(0,0,0,0.5)', maxWidth: '900px' }}>
+          <h1 className="package-hero-title">
             {pkg.name}
           </h1>
         </div>
       </section>
 
       {/* 2. MAIN DETAILS & SIDEBAR */}
-      <section className="section-padding" style={{ paddingTop: '50px' }}>
+      <section className="package-detail-section">
         <div className="container">
-          <div className="grid" style={{ gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)', gap: '40px' }}>
+          <div className="package-detail-grid">
             
             {/* LEFT CONTENT COLUMN */}
-            <div>
+            <div className="package-detail-main">
               
               {/* Tour Overview */}
               <div style={{ marginBottom: '40px' }}>
@@ -169,16 +168,16 @@ const PackageDetail = ({ onOpenBooking }) => {
               {/* HD Destination Photo Gallery with Lightbox Trigger */}
               {pkg.gallery && pkg.gallery.length > 0 && (
                 <div style={{ marginBottom: '45px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                    <h3 style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-primary-green)', fontSize: '1.4rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div className="package-gallery-header">
+                    <h3 className="package-gallery-title">
                       <Camera size={20} color="var(--color-primary-green)" /> Genuine Chikkamagaluru Photo Gallery
                     </h3>
-                    <span style={{ fontSize: '0.82rem', color: 'var(--color-text-muted)', fontWeight: 600 }}>
+                    <span className="package-gallery-hint">
                       Click photo to enlarge
                     </span>
                   </div>
                   
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+                  <div className="package-gallery-grid">
                     {pkg.gallery.map((imgUrl, i) => (
                       <div
                         key={i}
@@ -186,11 +185,8 @@ const PackageDetail = ({ onOpenBooking }) => {
                           setSelectedGalleryImg(imgUrl);
                           handleOpenLightbox(i);
                         }}
-                        className="img-zoom-container"
+                        className="package-gallery-item img-zoom-container"
                         style={{
-                          height: '110px',
-                          borderRadius: '12px',
-                          cursor: 'pointer',
                           border: selectedGalleryImg === imgUrl ? '3px solid var(--color-adventure-yellow)' : '1px solid rgba(18,60,42,0.15)',
                           boxShadow: selectedGalleryImg === imgUrl ? '0 0 15px rgba(255,212,41,0.5)' : 'none'
                         }}
@@ -361,22 +357,13 @@ const PackageDetail = ({ onOpenBooking }) => {
             </div>
 
             {/* RIGHT SIDEBAR: ACTION & BOOKING PANEL */}
-            <div>
-              <div
-                className="glass-card-dark"
-                style={{
-                  padding: '28px',
-                  position: 'sticky',
-                  top: '100px',
-                  borderRadius: '20px',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
-                }}
-              >
+            <div className="package-sidebar-col">
+              <div className="glass-card-dark package-sidebar-card">
                 <div style={{ borderBottom: '1px solid rgba(255,255,255,0.15)', paddingBottom: '20px', marginBottom: '22px' }}>
                   <span style={{ color: 'var(--color-adventure-yellow)', fontSize: '0.82rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.6px' }}>
                     {pkg.priceLabel || 'Vehicle charges'}
                   </span>
-                  <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--color-warm-ivory)', margin: '4px 0 2px' }}>
+                  <div className="package-price-text">
                     ₹{pkg.price ? pkg.price.toLocaleString() : 'Quote'}
                   </div>
                   <span style={{ fontSize: '0.8rem', color: '#CBD8D2' }}>
@@ -389,8 +376,7 @@ const PackageDetail = ({ onOpenBooking }) => {
                   {/* Book This Package Button */}
                   <button
                     onClick={() => onOpenBooking(pkg.name)}
-                    className="btn btn-yellow btn-lg"
-                    style={{ width: '100%', justifyContent: 'center' }}
+                    className="btn btn-yellow btn-lg package-action-btn"
                   >
                     <Calendar size={18} /> Book This Package
                   </button>
@@ -399,8 +385,7 @@ const PackageDetail = ({ onOpenBooking }) => {
                   <button
                     type="button"
                     onClick={() => openWhatsApp(buildPackageWhatsAppMessage({ packageName: pkg.name }))}
-                    className="btn btn-whatsapp btn-lg"
-                    style={{ width: '100%', justifyContent: 'center' }}
+                    className="btn btn-whatsapp btn-lg package-action-btn"
                   >
                     <MessageSquare size={18} /> Enquire on WhatsApp
                   </button>
@@ -408,8 +393,7 @@ const PackageDetail = ({ onOpenBooking }) => {
                   {/* Call Now Button */}
                   <a
                     href="tel:+918197007359"
-                    className="btn btn-outline-light btn-lg"
-                    style={{ width: '100%', justifyContent: 'center' }}
+                    className="btn btn-outline-light btn-lg package-action-btn"
                   >
                     <Phone size={18} /> Call Now (+91 8197007359)
                   </a>

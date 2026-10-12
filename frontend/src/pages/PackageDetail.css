@@ -1,0 +1,223 @@
+/* ==========================================================================
+   PACKAGE DETAIL PAGE RESPONSIVE STYLES
+   Sunil Tours N Travels | Chikkamagaluru
+   ========================================================================== */
+
+/* Hero Section */
+.package-hero-section {
+  position: relative;
+  min-height: 440px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-warm-ivory);
+  padding: 60px 0 36px;
+}
+
+@media (max-width: 768px) {
+  .package-hero-section {
+    min-height: 360px;
+    padding: 40px 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .package-hero-section {
+    min-height: 320px;
+    padding: 32px 0 20px;
+  }
+}
+
+.package-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+/* Main Section */
+.package-detail-section {
+  padding: 50px 0 80px;
+}
+
+@media (max-width: 768px) {
+  .package-detail-section {
+    padding: 36px 0 95px; /* 95px safe bottom clearance for mobile floating buttons */
+  }
+}
+
+/* Two-Column Desktop Grid / Single-Column Mobile Layout */
+.package-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .package-detail-grid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .package-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+/* Left Content Column */
+.package-detail-main {
+  width: 100%;
+  min-width: 0; /* Prevents overflow in grid flex items */
+}
+
+@media (max-width: 768px) {
+  .package-detail-main .grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+}
+
+/* Photo Gallery Header & Grid */
+.package-gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.package-gallery-title {
+  font-family: var(--font-serif);
+  color: var(--color-primary-green);
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.package-gallery-hint {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.package-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .package-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .package-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+.package-gallery-item {
+  height: 110px;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+@media (max-width: 640px) {
+  .package-gallery-item {
+    height: 95px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .package-gallery-item {
+    height: 85px;
+  }
+}
+
+/* Right Sidebar Column & Action Card */
+.package-sidebar-col {
+  width: 100%;
+  min-width: 0;
+}
+
+.package-sidebar-card {
+  padding: 28px;
+  position: sticky;
+  top: 100px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .package-sidebar-card {
+    position: static;
+    top: auto;
+    padding: 24px 20px;
+    border-radius: 18px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .package-sidebar-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+}
+
+/* Price Display */
+.package-price-text {
+  font-size: clamp(2rem, 5.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-warm-ivory);
+  margin: 6px 0 4px;
+  word-break: break-word;
+  line-height: 1.15;
+}
+
+/* Action Buttons Inside Vehicle Card */
+.package-action-btn {
+  width: 100% !important;
+  justify-content: center !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 640px) {
+  .package-action-btn {
+    padding: 13px 18px !important;
+    font-size: 0.95rem !important;
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .package-action-btn {
+    padding: 11px 14px !important;
+    font-size: 0.88rem !important;
+    gap: 6px !important;
+  }
+}

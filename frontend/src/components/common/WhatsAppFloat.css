@@ -1,0 +1,121 @@
+/* Floating WhatsApp & Call Quick Access Button Styles */
+
+.whatsapp-float-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  pointer-events: none; /* Allows click-through in empty gap space */
+}
+
+.whatsapp-float-call-btn,
+.whatsapp-float-chat-btn {
+  pointer-events: auto; /* Buttons remain clickable */
+}
+
+.whatsapp-float-call-btn {
+  background: var(--color-primary-green);
+  color: #FFFFFF;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(18, 60, 42, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+}
+
+.whatsapp-float-call-btn:hover {
+  transform: scale(1.1);
+  background: var(--color-primary-green-light);
+}
+
+.whatsapp-float-chat-btn {
+  background: #25D366;
+  color: #FFFFFF;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.whatsapp-float-chat-btn:hover {
+  transform: scale(1.1);
+  background: #20BA5A;
+}
+
+.whatsapp-float-online-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-adventure-yellow);
+  border-radius: 50%;
+  border: 2px solid #25D366;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .whatsapp-float-container {
+    bottom: 16px;
+    right: 14px;
+    gap: 8px;
+  }
+
+  .whatsapp-float-call-btn {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 4px 14px rgba(18, 60, 42, 0.35);
+  }
+
+  .whatsapp-float-chat-btn {
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+  }
+
+  .whatsapp-float-online-dot {
+    width: 12px;
+    height: 12px;
+    top: -2px;
+    right: -2px;
+  }
+}
+
+@media (max-width: 380px) {
+  .whatsapp-float-container {
+    bottom: 12px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .whatsapp-float-call-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .whatsapp-float-chat-btn {
+    width: 46px;
+    height: 46px;
+  }
+
+  .whatsapp-float-online-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
