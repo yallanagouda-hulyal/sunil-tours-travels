@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 // Common Public Components
 import Navbar from './components/common/Navbar';
@@ -20,13 +20,16 @@ import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
 const PublicLayout = ({ children, onOpenBooking }) => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div className={`public-layout-root ${isHome ? 'is-home-page' : ''}`} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar onOpenBooking={onOpenBooking} />
       <main style={{ flex: 1 }}>{children}</main>
       <Footer />
-      <WhatsAppFloat />
-      <Chatbot />
+      <WhatsAppFloat isHome={isHome} />
+      <Chatbot isHome={isHome} />
     </div>
   );
 };

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Phone, MessageSquare } from 'lucide-react';
 import { openWhatsApp } from '../../utils/whatsapp';
 import './WhatsAppFloat.css';
 
-const WhatsAppFloat = () => {
+const WhatsAppFloat = ({ isHome: propIsHome }) => {
   const phoneNumber = '+918197007359';
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+  const isHome = propIsHome !== undefined ? propIsHome : location.pathname === '/';
 
   useEffect(() => {
     const checkMobile = () => {
@@ -23,7 +26,7 @@ const WhatsAppFloat = () => {
   };
 
   return (
-    <div className="whatsapp-float-container">
+    <div className={`whatsapp-float-container ${isHome ? 'home-page-floating-whatsapp' : ''}`}>
       {/* Phone Call Floating Button */}
       <a
         href={`tel:${phoneNumber}`}

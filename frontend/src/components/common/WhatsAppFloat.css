@@ -119,3 +119,99 @@
     height: 10px;
   }
 }
+
+/* ==========================================================================
+   HOME PAGE SPECIFIC FLOATING BUTTON STYLES
+   Ensures safe margins, anti-clipping at mobile screen edges,
+   and clean spacing without overlapping Hero carousel or controls.
+   ========================================================================== */
+
+.home-page-floating-whatsapp {
+  position: fixed;
+  bottom: max(24px, env(safe-area-inset-bottom));
+  right: max(24px, env(safe-area-inset-right));
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.home-page-floating-whatsapp .whatsapp-float-call-btn,
+.home-page-floating-whatsapp .whatsapp-float-chat-btn {
+  pointer-events: auto;
+  transform-origin: bottom right; /* Prevents button scale from clipping at viewport edge */
+}
+
+.home-page-floating-whatsapp .whatsapp-float-online-dot {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 13px;
+  height: 13px;
+  background: var(--color-adventure-yellow);
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 1024px) {
+  .home-page-floating-whatsapp {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+    gap: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-page-floating-whatsapp {
+    bottom: max(16px, env(safe-area-inset-bottom));
+    right: max(16px, env(safe-area-inset-right));
+    gap: 8px;
+  }
+
+  .home-page-floating-whatsapp .whatsapp-float-call-btn {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 4px 14px rgba(18, 60, 42, 0.35);
+  }
+
+  .home-page-floating-whatsapp .whatsapp-float-chat-btn {
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+  }
+
+  .home-page-floating-whatsapp .whatsapp-float-online-dot {
+    width: 11px;
+    height: 11px;
+    top: 1px;
+    right: 1px;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-page-floating-whatsapp {
+    bottom: max(14px, env(safe-area-inset-bottom));
+    right: max(14px, env(safe-area-inset-right));
+    gap: 6px;
+  }
+
+  .home-page-floating-whatsapp .whatsapp-float-call-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .home-page-floating-whatsapp .whatsapp-float-chat-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .home-page-floating-whatsapp .whatsapp-float-online-dot {
+    width: 10px;
+    height: 10px;
+    top: 1px;
+    right: 1px;
+  }
+}

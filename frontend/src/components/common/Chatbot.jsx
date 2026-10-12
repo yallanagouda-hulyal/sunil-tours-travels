@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { MessageSquare, X, Minus, Send, Bot, ExternalLink, Sparkles } from 'lucide-react';
 import { openWhatsApp } from '../../utils/whatsapp';
 import './Chatbot.css';
 
-const Chatbot = () => {
+const Chatbot = ({ isHome: propIsHome }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = propIsHome !== undefined ? propIsHome : location.pathname === '/';
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -135,7 +137,7 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="chatbot-wrapper">
+    <div className={`chatbot-wrapper ${isHome ? 'home-page-floating-chatbot' : ''}`}>
       {/* Floating Messenger-Style Button */}
       {(!isOpen || isMinimized) && (
         <button
