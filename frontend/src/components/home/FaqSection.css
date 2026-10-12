@@ -368,6 +368,10 @@
     opacity: 0.5;
     width: 260px;
   }
+  .faq-bg-foliage-left,
+  .faq-bg-foliage-right {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {

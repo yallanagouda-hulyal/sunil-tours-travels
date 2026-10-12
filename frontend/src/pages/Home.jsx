@@ -8,6 +8,7 @@ import Gallery from '../components/home/Gallery';
 import FaqSection from '../components/home/FaqSection';
 import PricingDisclaimer from '../components/common/PricingDisclaimer';
 import API from '../services/api';
+import './Home.css';
 import {
   openWhatsApp,
   buildPackageWhatsAppMessage,
@@ -105,58 +106,23 @@ const Home = ({ onOpenBooking }) => {
       <Hero onOpenBooking={onOpenBooking} />
 
       {/* 2. POPULAR DESTINATIONS SECTION */}
-      <section className="section-padding" style={{ paddingTop: '90px', paddingBottom: '90px', background: '#F7F4E9' }}>
-        <div className="container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 24px' }}>
+      <section className="home-popular-dest-section">
+        <div className="home-popular-dest-container">
           
           {/* Centered Section Heading */}
-          <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 48px' }}>
-            <span
-              style={{
-                display: 'inline-block',
-                background: 'rgba(18, 60, 42, 0.1)',
-                color: '#123C2A',
-                border: '1px solid rgba(18, 60, 42, 0.25)',
-                padding: '6px 16px',
-                borderRadius: '20px',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.6px',
-                marginBottom: '12px'
-              }}
-            >
+          <div className="home-popular-header">
+            <span className="home-popular-badge">
               Karnataka's Natural Beauty
             </span>
-            <h2 style={{ fontFamily: 'var(--font-serif)', color: '#123C2A', fontSize: '2.5rem', fontWeight: 800, marginBottom: '12px', lineHeight: 1.2 }}>
+            <h2 className="home-popular-title">
               Popular <i>Destinations</i>
             </h2>
-            <p style={{ color: '#556B60', fontSize: '1.02rem', lineHeight: 1.6, margin: '0 auto 20px' }}>
+            <p className="home-popular-subtitle">
               Explore iconic mountain peaks, cascading waterfalls, and ancient Hoysala heritage temples in Chikkamagaluru.
             </p>
             <Link
               to="/destinations"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'transparent',
-                color: '#123C2A',
-                border: '1.5px solid #123C2A',
-                padding: '9px 24px',
-                borderRadius: '30px',
-                fontWeight: 700,
-                fontSize: '0.9rem',
-                textDecoration: 'none',
-                transition: 'all 0.25s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#123C2A';
-                e.currentTarget.style.color = '#FFD429';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'transparent';
-                e.currentTarget.style.color = '#123C2A';
-              }}
+              className="home-popular-cta"
             >
               <span>View All Destinations</span>
               <ArrowRight size={15} />
@@ -365,39 +331,17 @@ const Home = ({ onOpenBooking }) => {
             ))}
           </div>
 
-          {/* CSS Grid Helper */}
-          <style>{`
-            .popular-destinations-grid {
-              display: grid;
-              grid-template-columns: repeat(3, 1fr);
-              gap: 30px;
-              align-items: stretch;
-            }
-            @media (max-width: 1024px) {
-              .popular-destinations-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-              }
-            }
-            @media (max-width: 640px) {
-              .popular-destinations-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-              }
-            }
-          `}</style>
-
         </div>
       </section>
 
       {/* 3. SIGHTSEEING PACKAGES */}
-      <section style={{ background: 'var(--color-warm-ivory-dark)', padding: '80px 0' }}>
+      <section className="home-packages-section">
         <div className="container">
           
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '36px' }}>
             <div>
               <span className="badge badge-yellow">Fixed Vehicle Rates</span>
-              <h2 style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-primary-green)', fontSize: '2.25rem', marginTop: '6px' }}>
+              <h2 className="home-packages-title">
                 Sightseeing Packages — <i>Choose Your Perfect Adventure</i>
               </h2>
             </div>
@@ -1052,22 +996,8 @@ const Home = ({ onOpenBooking }) => {
           <div className="vehicle-hire-responsive-grid" style={{ gap: '26px' }}>
             
             {/* 10 Seater Vehicles */}
-            <div
-              className="glancey-dest-card"
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '24px',
-                padding: '22px',
-                display: 'flex',
-                gap: '20px',
-                alignItems: 'center',
-                border: '1.5px solid rgba(18, 60, 42, 0.12)',
-                boxShadow: '0 10px 30px rgba(18, 60, 42, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04)',
-                transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-                position: 'relative'
-              }}
-            >
-              <div className="img-zoom-container" style={{ width: '190px', height: '150px', borderRadius: '18px', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+            <div className="vehicle-hire-card">
+              <div className="img-zoom-container vehicle-hire-img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=600&q=80"
                   alt="10 Seater Tempo"
@@ -1170,22 +1100,8 @@ const Home = ({ onOpenBooking }) => {
             </div>
 
             {/* 50 Seater Buses */}
-            <div
-              className="glancey-dest-card"
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '24px',
-                padding: '22px',
-                display: 'flex',
-                gap: '20px',
-                alignItems: 'center',
-                border: '1.5px solid rgba(18, 60, 42, 0.12)',
-                boxShadow: '0 10px 30px rgba(18, 60, 42, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04)',
-                transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-                position: 'relative'
-              }}
-            >
-              <div className="img-zoom-container" style={{ width: '190px', height: '150px', borderRadius: '18px', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+            <div className="vehicle-hire-card">
+              <div className="img-zoom-container vehicle-hire-img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80"
                   alt="50 Seater Bus"
@@ -1288,22 +1204,8 @@ const Home = ({ onOpenBooking }) => {
             </div>
 
             {/* Student Trips */}
-            <div
-              className="glancey-dest-card"
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '24px',
-                padding: '22px',
-                display: 'flex',
-                gap: '20px',
-                alignItems: 'center',
-                border: '1.5px solid rgba(18, 60, 42, 0.12)',
-                boxShadow: '0 10px 30px rgba(18, 60, 42, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04)',
-                transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-                position: 'relative'
-              }}
-            >
-              <div className="img-zoom-container" style={{ width: '190px', height: '150px', borderRadius: '18px', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+            <div className="vehicle-hire-card">
+              <div className="img-zoom-container vehicle-hire-img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
                   alt="Student Group"
@@ -1410,22 +1312,8 @@ const Home = ({ onOpenBooking }) => {
             </div>
 
             {/* Corporate Trips */}
-            <div
-              className="glancey-dest-card"
-              style={{
-                background: '#FFFFFF',
-                borderRadius: '24px',
-                padding: '22px',
-                display: 'flex',
-                gap: '20px',
-                alignItems: 'center',
-                border: '1.5px solid rgba(18, 60, 42, 0.12)',
-                boxShadow: '0 10px 30px rgba(18, 60, 42, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04)',
-                transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
-                position: 'relative'
-              }}
-            >
-              <div className="img-zoom-container" style={{ width: '190px', height: '150px', borderRadius: '18px', flexShrink: 0, position: 'relative', overflow: 'hidden' }}>
+            <div className="vehicle-hire-card">
+              <div className="img-zoom-container vehicle-hire-img-wrapper">
                 <img
                   src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?auto=format&fit=crop&w=600&q=80"
                   alt="Corporate Outings"
@@ -1533,20 +1421,6 @@ const Home = ({ onOpenBooking }) => {
 
           </div>
 
-          {/* Responsive CSS Grid Helper */}
-          <style>{`
-            .vehicle-hire-responsive-grid {
-              display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              gap: 26px;
-            }
-            @media (max-width: 1024px) {
-              .vehicle-hire-responsive-grid {
-                grid-template-columns: 1fr;
-              }
-            }
-          `}</style>
-
         </div>
       </section>
 
@@ -1562,7 +1436,7 @@ const Home = ({ onOpenBooking }) => {
       {/* 9. FINAL PRE-FOOTER CTA BANNER */}
       <section style={{ background: 'var(--color-primary-green-dark)', color: 'var(--color-warm-ivory)', padding: '70px 20px', textAlign: 'center', borderTop: '2px solid var(--color-adventure-yellow)' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', marginBottom: '14px' }}>
+          <h2 className="home-prefooter-title">
             Your Chikkamagaluru Adventure Starts Here.
           </h2>
           <p style={{ color: '#CBD8D2', fontSize: '1.05rem', marginBottom: '30px' }}>

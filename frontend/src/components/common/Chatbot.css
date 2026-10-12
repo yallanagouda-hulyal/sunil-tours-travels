@@ -431,24 +431,64 @@
 
 @media (max-width: 640px) {
   .home-page-floating-chatbot {
-    bottom: max(16px, env(safe-area-inset-bottom));
-    left: max(16px, env(safe-area-inset-left));
-  }
-
-  .home-page-floating-chatbot .floating-chat-btn {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-@media (max-width: 380px) {
-  .home-page-floating-chatbot {
-    bottom: max(14px, env(safe-area-inset-bottom));
     left: max(14px, env(safe-area-inset-left));
+    right: auto;
+    bottom: max(16px, env(safe-area-inset-bottom));
   }
 
   .home-page-floating-chatbot .floating-chat-btn {
     width: 48px;
     height: 48px;
+    transform-origin: bottom left;
+    box-shadow: 0 4px 16px rgba(18, 60, 42, 0.4);
+  }
+
+  .home-page-floating-chatbot .floating-chat-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .home-page-floating-chatbot .online-dot {
+    width: 11px;
+    height: 11px;
+    top: 1px;
+    right: 1px;
+  }
+
+  .home-page-floating-chatbot .chat-window {
+    left: 0;
+    right: auto;
+    bottom: 56px;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-page-floating-chatbot {
+    left: max(10px, env(safe-area-inset-left));
+    right: auto;
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .home-page-floating-chatbot .floating-chat-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .home-page-floating-chatbot .floating-chat-btn svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .home-page-floating-chatbot .online-dot {
+    width: 9px;
+    height: 9px;
+    top: 1px;
+    right: 1px;
+  }
+
+  .home-page-floating-chatbot .chat-window {
+    left: 0;
+    right: auto;
+    bottom: 50px;
   }
 }

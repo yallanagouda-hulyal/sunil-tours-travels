@@ -1,0 +1,304 @@
+/* ==========================================================================
+   HOME PAGE SPECIFIC STYLES
+   Sunil Tours N Travels | Chikkamagaluru
+   Responsive styling for Popular Destinations, spacing, and layout harmony
+   ========================================================================== */
+
+/* Popular Destinations Section */
+.home-popular-dest-section {
+  background: var(--color-warm-ivory);
+  padding: 76px 0 84px;
+  position: relative;
+  transition: padding 0.25s ease;
+}
+
+.home-popular-dest-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header Block */
+.home-popular-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 48px;
+  position: relative;
+}
+
+.home-popular-badge {
+  display: inline-block;
+  background: rgba(18, 60, 42, 0.08);
+  color: var(--color-primary-green);
+  border: 1px solid rgba(18, 60, 42, 0.22);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 12px;
+}
+
+.home-popular-title {
+  font-family: var(--font-serif);
+  color: var(--color-primary-green);
+  font-size: clamp(2rem, 4.5vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.home-popular-title i {
+  font-style: italic;
+  color: var(--color-primary-green-light);
+}
+
+.home-popular-subtitle {
+  color: #556B60;
+  font-size: clamp(0.95rem, 2.2vw, 1.02rem);
+  line-height: 1.6;
+  margin: 0 auto 20px;
+  max-width: 620px;
+}
+
+/* "View All Destinations" CTA Button */
+.home-popular-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--color-primary-green);
+  border: 1.5px solid var(--color-primary-green);
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(18, 60, 42, 0.06);
+}
+
+.home-popular-cta:hover {
+  background: var(--color-primary-green);
+  color: var(--color-adventure-yellow);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(18, 60, 42, 0.18);
+}
+
+/* 3-Column Equal-Height Destination Grid */
+.popular-destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .home-popular-dest-section {
+    padding: 56px 0 64px;
+  }
+  .popular-destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Drastically reduce excessive vertical gap between Hero search and Destinations */
+  .home-popular-dest-section {
+    padding: 24px 0 40px;
+  }
+
+  .home-popular-dest-container {
+    padding: 0 16px;
+  }
+
+  .home-popular-header {
+    margin: 0 auto 24px;
+  }
+
+  .home-popular-badge {
+    padding: 5px 14px;
+    font-size: 0.74rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .home-popular-title {
+    font-size: clamp(1.65rem, 5.5vw, 2.05rem);
+    margin-bottom: 8px;
+  }
+
+  .home-popular-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.48;
+    margin: 0 auto 16px;
+    padding: 0 4px;
+  }
+
+  .home-popular-cta {
+    padding: 9px 20px;
+    font-size: 0.86rem;
+  }
+
+  .popular-destinations-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-popular-dest-section {
+    padding: 18px 0 34px;
+  }
+
+  .home-popular-header {
+    margin: 0 auto 20px;
+  }
+
+  .home-popular-badge {
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    margin-bottom: 6px;
+  }
+
+  .home-popular-title {
+    font-size: 1.6rem;
+  }
+
+  .home-popular-subtitle {
+    font-size: 0.84rem;
+    line-height: 1.42;
+    margin: 0 auto 14px;
+  }
+
+  .home-popular-cta {
+    padding: 8px 18px;
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-popular-dest-container {
+    padding: 0 12px;
+  }
+
+  .home-popular-title {
+    font-size: 1.45rem;
+  }
+
+  .home-popular-cta {
+    padding: 7px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Sightseeing Packages Section Responsive Rhythm */
+.home-packages-section {
+  background: var(--color-warm-ivory-dark);
+  padding: 76px 0 84px;
+}
+
+.home-packages-title {
+  font-family: var(--font-serif);
+  color: var(--color-primary-green);
+  font-size: clamp(1.6rem, 5vw, 2.25rem);
+  margin-top: 6px;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+@media (max-width: 1024px) {
+  .home-packages-section {
+    padding: 56px 0 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-packages-section {
+    padding: 36px 0 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-packages-section {
+    padding: 28px 0 36px;
+  }
+}
+
+/* Vehicle Hire & Group Transport Responsive Grid & Cards */
+.vehicle-hire-responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+}
+
+.vehicle-hire-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 22px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border: 1.5px solid rgba(18, 60, 42, 0.12);
+  box-shadow: 0 10px 30px rgba(18, 60, 42, 0.07), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.vehicle-hire-img-wrapper {
+  width: 190px;
+  height: 150px;
+  border-radius: 18px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .vehicle-hire-responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .vehicle-hire-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+    gap: 16px;
+    border-radius: 20px;
+  }
+  .vehicle-hire-img-wrapper {
+    width: 100%;
+    height: 190px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .vehicle-hire-card {
+    padding: 12px;
+    gap: 12px;
+  }
+  .vehicle-hire-img-wrapper {
+    height: 160px;
+  }
+}
+
+/* Pre-footer Call to Action */
+.home-prefooter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  margin-bottom: 14px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.25;
+}
+
+
+

@@ -617,7 +617,7 @@
 @media (max-width: 768px) {
   .hero-split-section {
     padding-top: 14px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
   .hero-split-container {
     grid-template-columns: 1fr;
@@ -686,8 +686,8 @@
     right: 10px;
   }
   .glass-booking-search-panel {
-    margin-top: 18px;
-    padding: 18px 14px;
+    margin-top: 16px;
+    padding: 16px 14px;
   }
   .search-panel-form {
     grid-template-columns: 1fr;
@@ -701,6 +701,9 @@
 }
 
 @media (max-width: 380px) {
+  .hero-split-section {
+    padding-bottom: 14px;
+  }
   .hero-eyebrow-badge {
     font-size: 0.68rem;
     padding: 3px 8px;
@@ -735,5 +738,9 @@
   }
   .hero-right-column {
     height: 290px;
+  }
+  .glass-booking-search-panel {
+    margin-top: 12px;
+    padding: 14px 12px;
   }
 }
