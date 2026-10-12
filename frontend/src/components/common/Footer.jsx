@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, MessageSquare, Mail, MapPin, Instagram, Facebook, Youtube, Linkedin } from 'lucide-react';
 import logoImg from '../../assets/images/sunil-tours-logo.png';
 import { openWhatsApp } from '../../utils/whatsapp';
-import PolicyModal from './PolicyModal';
 
 const Footer = () => {
-  const [activeModal, setActiveModal] = useState(null);
 
   return (
     <footer style={{ background: 'var(--color-primary-green-dark)', color: 'var(--color-text-light)', paddingTop: '60px', paddingBottom: '30px', marginTop: 'auto', borderTop: '2px solid var(--color-adventure-yellow)' }}>
@@ -161,16 +159,31 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Sunil Tours N Travels. All Rights Reserved.
           </div>
 
-          <div style={{ display: 'flex', gap: '20px' }}>
-            <button onClick={() => setActiveModal('privacy')} style={{ color: '#CBD8D2', fontSize: '0.88rem', cursor: 'pointer', background: 'none', border: 'none' }}>
+          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+            <Link
+              to="/privacy-policy"
+              style={{ color: '#CBD8D2', fontSize: '0.88rem', textDecoration: 'none', transition: 'color 0.2s ease' }}
+              onMouseOver={(e) => (e.target.style.color = '#FFD429')}
+              onMouseOut={(e) => (e.target.style.color = '#CBD8D2')}
+            >
               Privacy Policy
-            </button>
-            <button onClick={() => setActiveModal('terms')} style={{ color: '#CBD8D2', fontSize: '0.88rem', cursor: 'pointer', background: 'none', border: 'none' }}>
-              Terms & Conditions
-            </button>
-            <button onClick={() => setActiveModal('cancellation')} style={{ color: '#CBD8D2', fontSize: '0.88rem', cursor: 'pointer', background: 'none', border: 'none' }}>
+            </Link>
+            <Link
+              to="/terms-and-conditions"
+              style={{ color: '#CBD8D2', fontSize: '0.88rem', textDecoration: 'none', transition: 'color 0.2s ease' }}
+              onMouseOver={(e) => (e.target.style.color = '#FFD429')}
+              onMouseOut={(e) => (e.target.style.color = '#CBD8D2')}
+            >
+              Terms &amp; Conditions
+            </Link>
+            <Link
+              to="/cancellation-policy"
+              style={{ color: '#CBD8D2', fontSize: '0.88rem', textDecoration: 'none', transition: 'color 0.2s ease' }}
+              onMouseOver={(e) => (e.target.style.color = '#FFD429')}
+              onMouseOut={(e) => (e.target.style.color = '#CBD8D2')}
+            >
               Cancellation Policy
-            </button>
+            </Link>
           </div>
 
           {/* EXACT Mandatory Developer Credit */}
@@ -194,13 +207,6 @@ const Footer = () => {
           </a>
         </div>
       </div>
-
-      {/* Policy Modals */}
-      <PolicyModal
-        isOpen={!!activeModal}
-        policyType={activeModal}
-        onClose={() => setActiveModal(null)}
-      />
     </footer>
   );
 };

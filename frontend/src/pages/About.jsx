@@ -1,5 +1,6 @@
-import React from 'react';
-import { Mountain, Compass, ShieldCheck, Bus, Users, Phone, MessageSquare, Check, ArrowRight } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Mountain, Compass, ShieldCheck, Bus, Users, Phone, MessageSquare, Check, ArrowRight, ArrowLeft, Home, ChevronRight } from 'lucide-react';
 import { openWhatsApp } from '../utils/whatsapp';
 
 const About = () => {
@@ -27,9 +28,44 @@ const About = () => {
     }
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div style={{ background: '#F7F4E9', padding: '90px 0', minHeight: '80vh' }}>
+    <div style={{ background: '#F7F4E9', padding: '50px 0 90px', minHeight: '80vh' }}>
       <div className="container" style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
+        
+        {/* Breadcrumb & Back to Home */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '32px' }}>
+          <nav style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', fontSize: '0.9rem', color: '#556B60' }} aria-label="Breadcrumb">
+            <Link to="/" style={{ color: '#123C2A', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <Home size={15} /> Home
+            </Link>
+            <ChevronRight size={14} style={{ color: '#8C9E94' }} />
+            <span style={{ color: '#123C2A', fontWeight: 800 }}>About Us</span>
+          </nav>
+
+          <Link
+            to="/"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '7px 16px',
+              background: 'rgba(18, 60, 42, 0.08)',
+              color: '#123C2A',
+              border: '1px solid rgba(18, 60, 42, 0.18)',
+              borderRadius: '20px',
+              fontSize: '0.84rem',
+              fontWeight: 700,
+              textDecoration: 'none',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            <ArrowLeft size={15} /> Back to Home
+          </Link>
+        </div>
         
         {/* Header */}
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 50px' }}>

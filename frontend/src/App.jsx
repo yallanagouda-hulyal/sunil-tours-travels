@@ -17,7 +17,11 @@ import PackageDetail from './pages/PackageDetail';
 import Vehicles from './pages/Vehicles';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
+import CancellationPolicy from './pages/CancellationPolicy';
 import NotFound from './pages/NotFound';
+import ScrollToTop from './components/common/ScrollToTop';
 
 const PublicLayout = ({ children, onOpenBooking }) => {
   const location = useLocation();
@@ -50,6 +54,7 @@ const App = () => {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         {/* Public Website Routes */}
         <Route
@@ -126,6 +131,38 @@ const App = () => {
             </PublicLayout>
           }
         />
+
+        {/* Dedicated Full-Page Policy Routes */}
+        <Route
+          path="/privacy-policy"
+          element={
+            <PublicLayout onOpenBooking={handleOpenBooking}>
+              <PrivacyPolicy />
+            </PublicLayout>
+          }
+        />
+        <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
+
+        <Route
+          path="/terms-and-conditions"
+          element={
+            <PublicLayout onOpenBooking={handleOpenBooking}>
+              <TermsConditions />
+            </PublicLayout>
+          }
+        />
+        <Route path="/terms" element={<Navigate to="/terms-and-conditions" replace />} />
+
+        <Route
+          path="/cancellation-policy"
+          element={
+            <PublicLayout onOpenBooking={handleOpenBooking}>
+              <CancellationPolicy />
+            </PublicLayout>
+          }
+        />
+        <Route path="/cancellation" element={<Navigate to="/cancellation-policy" replace />} />
+        <Route path="/cancellation-and-refund-policy" element={<Navigate to="/cancellation-policy" replace />} />
 
         {/* 404 Catch All */}
         <Route

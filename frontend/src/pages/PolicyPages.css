@@ -1,0 +1,881 @@
+/* ========================================================= */
+/* POLICY PAGES STYLES - SUNIL TOURS N TRAVELS */
+/* Premium, Modern, Two-Column Layout with Scenic Hero */
+/* ========================================================= */
+
+.policy-page-root {
+  background: #F7F4E9;
+  min-height: 100vh;
+  color: #2C4638;
+  display: flex;
+  flex-direction: column;
+}
+
+.policy-page-root * {
+  box-sizing: border-box;
+}
+
+/* ========================================================= */
+/* 1. SCENIC HERO BANNER (MOUNTAIN ROAD WITH LUXURY BUS) */
+/* ========================================================= */
+.policy-hero-banner {
+  position: relative;
+  background-color: #123C2A;
+  background-image: 
+    linear-gradient(180deg, rgba(18, 60, 42, 0.86) 0%, rgba(9, 23, 17, 0.94) 100%),
+    url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  padding: 64px 0 70px;
+  border-bottom: 3.5px solid #FFD429;
+}
+
+.policy-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.policy-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #CBD8D2;
+  margin-bottom: 18px;
+}
+
+.policy-hero-breadcrumb a {
+  color: #FFD429;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.2s ease;
+}
+
+.policy-hero-breadcrumb a:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.policy-hero-breadcrumb .separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.policy-hero-breadcrumb .current {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.policy-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 212, 41, 0.15);
+  border: 1px solid rgba(255, 212, 41, 0.45);
+  color: #FFD429;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.policy-hero-title {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 2.9rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.policy-hero-title .highlight-yellow {
+  color: #FFD429;
+}
+
+.policy-hero-subtitle {
+  font-size: 1.05rem;
+  color: #D1E0D9;
+  max-width: 740px;
+  line-height: 1.62;
+  margin: 0 0 16px;
+}
+
+.policy-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: #9EAF95;
+}
+
+/* ========================================================= */
+/* 2. POLICY HORIZONTAL TABS SWITCHER */
+/* ========================================================= */
+.policy-tabs-section {
+  background: #F7F4E9;
+  padding: 24px 0 0;
+}
+
+.policy-tabs-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.policy-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 0 14px;
+  border-bottom: 1px solid rgba(18, 60, 42, 0.12);
+}
+
+.policy-tabs-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.policy-tab-link {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 11px 22px;
+  border-radius: 24px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  border: 1.5px solid transparent;
+}
+
+.policy-tab-link.active {
+  background: #123C2A;
+  color: #FFD429;
+  border-color: #123C2A;
+  box-shadow: 0 4px 14px rgba(18, 60, 42, 0.22);
+}
+
+.policy-tab-link:not(.active) {
+  background: #FFFFFF;
+  color: #2C4638;
+  border-color: rgba(18, 60, 42, 0.18);
+  box-shadow: 0 2px 6px rgba(18, 60, 42, 0.04);
+}
+
+.policy-tab-link:not(.active):hover {
+  background: #EFECE0;
+  color: #123C2A;
+  border-color: rgba(18, 60, 42, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ========================================================= */
+/* 3. TWO-COLUMN MAIN CONTENT LAYOUT */
+/* ========================================================= */
+.policy-main-section {
+  padding: 36px 0 80px;
+}
+
+.policy-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  gap: 36px;
+  align-items: flex-start;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* LEFT COLUMN - LARGE WHITE POLICY CARD */
+.policy-content-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1.5px solid rgba(18, 60, 42, 0.12);
+  padding: 40px 44px;
+  box-shadow: 0 10px 30px rgba(18, 60, 42, 0.05);
+}
+
+.policy-section-block {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(18, 60, 42, 0.1);
+}
+
+.policy-section-block:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.policy-block-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.policy-block-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(18, 60, 42, 0.08);
+  color: #123C2A;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.policy-block-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #123C2A;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.policy-p {
+  font-size: 0.96rem;
+  line-height: 1.72;
+  color: #3E5145;
+  margin: 0 0 14px;
+}
+
+.policy-p:last-child {
+  margin-bottom: 0;
+}
+
+/* Checkmark List */
+.policy-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.policy-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.94rem;
+  color: #3E5145;
+  line-height: 1.6;
+}
+
+.policy-checklist-icon {
+  color: #123C2A;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+/* Soft Ivory Sub-Card */
+.policy-subcard {
+  background: #FAF7EE;
+  border: 1px solid rgba(18, 60, 42, 0.12);
+  border-left: 4px solid #123C2A;
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  font-size: 0.92rem;
+  color: #33463B;
+  line-height: 1.62;
+}
+
+.policy-subcard-title {
+  font-weight: 800;
+  color: #123C2A;
+  margin-bottom: 4px;
+  font-size: 0.96rem;
+}
+
+/* Contact Details Grid inside Card */
+.policy-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.policy-contact-box {
+  background: #FAF7EE;
+  border: 1px solid rgba(18, 60, 42, 0.12);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.policy-contact-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #5A7063;
+  letter-spacing: 0.04em;
+}
+
+.policy-contact-val {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #123C2A;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.policy-contact-val:hover {
+  text-decoration: underline;
+}
+
+/* ========================================================= */
+/* CANCELLATION REFUND TIERS (3 VISUALLY DISTINCT CARDS) */
+/* ========================================================= */
+.refund-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 22px 0 28px;
+}
+
+.refund-tier-card {
+  border-radius: 20px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(18, 60, 42, 0.05);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.refund-tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(18, 60, 42, 0.12);
+}
+
+/* 1. Full Refund Card (100%) - Forest Emerald Green */
+.refund-tier-full {
+  background: #F0FAF4;
+  border-color: #25D366;
+}
+
+/* 2. Partial Refund Card (50%) - Adventure Amber Yellow */
+.refund-tier-partial {
+  background: #FFFDF0;
+  border-color: #FFD429;
+}
+
+/* 3. No Refund Card (0%) - Coral Crimson Red */
+.refund-tier-none {
+  background: #FDF5F5;
+  border-color: #EF4444;
+}
+
+.refund-tier-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.refund-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.refund-tier-badge.badge-full {
+  background: rgba(37, 211, 102, 0.22);
+  color: #0E6838;
+}
+
+.refund-tier-badge.badge-partial {
+  background: rgba(255, 212, 41, 0.4);
+  color: #7A5800;
+}
+
+.refund-tier-badge.badge-none {
+  background: rgba(239, 68, 68, 0.18);
+  color: #B91C1C;
+}
+
+.refund-tier-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.refund-tier-icon.icon-full {
+  background: rgba(37, 211, 102, 0.2);
+  color: #0E6838;
+}
+
+.refund-tier-icon.icon-partial {
+  background: rgba(255, 212, 41, 0.35);
+  color: #7A5800;
+}
+
+.refund-tier-icon.icon-none {
+  background: rgba(239, 68, 68, 0.18);
+  color: #B91C1C;
+}
+
+.refund-tier-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.refund-tier-percentage {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 2.7rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 4px 0;
+}
+
+.refund-tier-percentage.percent-full {
+  color: #0E6838;
+}
+
+.refund-tier-percentage.percent-partial {
+  color: #8A6600;
+}
+
+.refund-tier-percentage.percent-none {
+  color: #B91C1C;
+}
+
+.refund-tier-timeline {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #123C2A;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.refund-tier-desc {
+  font-size: 0.88rem;
+  line-height: 1.58;
+  color: #4A5E52;
+  margin: 0;
+}
+
+/* Notice for Travelers box */
+.policy-page-notice {
+  background: #FFFCEB;
+  border: 1.5px solid rgba(255, 212, 41, 0.7);
+  border-left: 5px solid #D4A017;
+  border-radius: 16px;
+  padding: 20px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: #4C3C0A;
+  font-size: 0.9rem;
+  line-height: 1.62;
+  margin-top: 10px;
+}
+
+.policy-page-notice-icon {
+  color: #9E7406;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.policy-page-notice-title {
+  font-weight: 800;
+  color: #382B00;
+  margin-bottom: 4px;
+  display: block;
+  font-size: 0.96rem;
+}
+
+/* ========================================================= */
+/* RIGHT COLUMN - STICKY SIDEBAR */
+/* ========================================================= */
+.policy-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 90px;
+}
+
+/* Sidebar Card 1: Quick Links */
+.sidebar-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px solid rgba(18, 60, 42, 0.12);
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(18, 60, 42, 0.04);
+}
+
+.sidebar-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #123C2A;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.sidebar-subtitle {
+  font-size: 0.84rem;
+  color: #556B60;
+  margin: 0 0 16px;
+  line-height: 1.4;
+}
+
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #2C4638;
+  background: #FAF7EE;
+  border: 1px solid rgba(18, 60, 42, 0.08);
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav-item:hover {
+  background: #123C2A;
+  color: #FFD429;
+  border-color: #123C2A;
+  transform: translateX(3px);
+}
+
+.sidebar-nav-item.active {
+  background: #123C2A;
+  color: #FFD429;
+  border-color: #123C2A;
+  box-shadow: 0 3px 10px rgba(18, 60, 42, 0.18);
+}
+
+.sidebar-nav-item .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Sidebar Card 2: Have Questions? Scenic Support Card */
+.sidebar-support-card {
+  background: linear-gradient(135deg, #123C2A 0%, #0F3021 100%);
+  border-radius: 20px;
+  border: 1.5px solid rgba(255, 212, 41, 0.35);
+  padding: 26px 24px;
+  color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(18, 60, 42, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-support-card::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, rgba(255, 212, 41, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.support-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 212, 41, 0.18);
+  color: #FFD429;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.support-heading {
+  font-family: var(--font-serif, 'Playfair Display', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+}
+
+.support-text {
+  font-size: 0.88rem;
+  color: #CBD8D2;
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.support-whatsapp-btn {
+  background: #25D366;
+  color: #FFFFFF;
+  border: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 12px 18px;
+  border-radius: 14px;
+  width: 100%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+.support-whatsapp-btn:hover {
+  background: #20BD5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+/* Sidebar Card 3: Direct Assistance Card */
+.sidebar-assistance-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px solid rgba(18, 60, 42, 0.12);
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(18, 60, 42, 0.04);
+}
+
+.assistance-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.assistance-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(18, 60, 42, 0.08);
+  color: #123C2A;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assistance-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #123C2A;
+  margin: 0;
+}
+
+.assistance-phone {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #123C2A;
+  text-decoration: none;
+  margin: 4px 0 2px;
+}
+
+.assistance-phone:hover {
+  color: #1A543A;
+  text-decoration: underline;
+}
+
+.assistance-hours {
+  font-size: 0.8rem;
+  color: #5A7063;
+  margin-bottom: 14px;
+}
+
+.assistance-call-btn {
+  background: #123C2A;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.assistance-call-btn:hover {
+  background: #1A543A;
+  transform: translateY(-1px);
+}
+
+/* ========================================================= */
+/* 4. RESPONSIVE BREAKPOINTS (320px, 375px, 430px, 768px, Desktop) */
+/* ========================================================= */
+
+@media (max-width: 1024px) {
+  .policy-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .policy-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .policy-hero-banner {
+    padding: 48px 0 54px;
+  }
+
+  .policy-hero-title {
+    font-size: 2.2rem;
+  }
+
+  .policy-hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .policy-content-card {
+    padding: 28px 24px;
+    border-radius: 18px;
+  }
+
+  .policy-block-title {
+    font-size: 1.2rem;
+  }
+
+  .policy-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .policy-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .refund-tiers-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .policy-hero-banner {
+    padding: 38px 0 42px;
+  }
+
+  .policy-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .policy-hero-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .policy-tabs-section {
+    padding: 16px 0 0;
+  }
+
+  .policy-tab-link {
+    padding: 9px 16px;
+    font-size: 0.82rem;
+  }
+
+  .policy-content-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .policy-block-header {
+    gap: 10px;
+  }
+
+  .policy-block-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+  }
+
+  .policy-block-title {
+    font-size: 1.1rem;
+  }
+
+  .policy-p {
+    font-size: 0.88rem;
+    line-height: 1.62;
+  }
+
+  .policy-checklist-item {
+    font-size: 0.88rem;
+  }
+
+  .policy-subcard {
+    padding: 14px 14px;
+    border-radius: 12px;
+  }
+
+  .sidebar-card,
+  .sidebar-support-card,
+  .sidebar-assistance-card {
+    padding: 20px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .policy-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .policy-content-card {
+    padding: 16px 12px;
+  }
+
+  .policy-tab-link {
+    padding: 8px 12px;
+    font-size: 0.78rem;
+  }
+}
