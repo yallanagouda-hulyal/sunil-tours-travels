@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, MessageSquare, Mail, MapPin, Instagram, Facebook, Youtube, Linkedin } from 'lucide-react';
 import logoImg from '../../assets/images/sunil-tours-logo.png';
 import { openWhatsApp } from '../../utils/whatsapp';
+import PolicyModal from './PolicyModal';
 
 const Footer = () => {
   const [activeModal, setActiveModal] = useState(null);
@@ -195,42 +196,11 @@ const Footer = () => {
       </div>
 
       {/* Policy Modals */}
-      {activeModal && (
-        <div className="modal-overlay" onClick={() => setActiveModal(null)}>
-          <div className="glass-card" style={{ maxWidth: '600px', width: '100%', padding: '30px', color: 'var(--color-text-main)', maxHeight: '80vh', overflowY: 'auto' }} onClick={e => e.stopPropagation()}>
-            <h3 style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-primary-green)', marginBottom: '16px' }}>
-              {activeModal === 'privacy' && 'Privacy Policy'}
-              {activeModal === 'terms' && 'Terms & Conditions'}
-              {activeModal === 'cancellation' && 'Cancellation Policy'}
-            </h3>
-            <div style={{ fontSize: '0.92rem', lineHeight: 1.6, color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {activeModal === 'privacy' && (
-                <>
-                  <p>Sunil Tours N Travels respects your privacy. We collect customer names, phone numbers, and travel preferences solely for organizing tour bookings and vehicle hire.</p>
-                  <p>We do not share your contact details with third-party marketing companies. All data submitted via booking forms is processed securely.</p>
-                </>
-              )}
-              {activeModal === 'terms' && (
-                <>
-                  <p>1. Listed sightseeing prices cover vehicle charges, driver allowance, and fuel only unless explicitly stated otherwise.</p>
-                  <p>2. Waterfall entry fees, jeep trekking, zipline, temple entrance tickets, and parking fees are payable directly at destination checkpoints.</p>
-                  <p>3. Travel schedules may be modified due to weather, forest department regulations, or road closures.</p>
-                </>
-              )}
-              {activeModal === 'cancellation' && (
-                <>
-                  <p>1. Cancellations made 48 hours prior to scheduled departure: 100% full refund of advance booking amount.</p>
-                  <p>2. Cancellations made 24-48 hours before trip: 50% refund.</p>
-                  <p>3. Cancellations made within 24 hours of travel or no-shows: Non-refundable.</p>
-                </>
-              )}
-            </div>
-            <button className="btn btn-green btn-sm" style={{ marginTop: '20px', width: '100%' }} onClick={() => setActiveModal(null)}>
-              Close Window
-            </button>
-          </div>
-        </div>
-      )}
+      <PolicyModal
+        isOpen={!!activeModal}
+        policyType={activeModal}
+        onClose={() => setActiveModal(null)}
+      />
     </footer>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Phone, MessageSquare } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { openWhatsApp } from '../../utils/whatsapp';
 import './WhatsAppFloat.css';
 
@@ -45,7 +46,7 @@ const WhatsAppFloat = ({ isHome: propIsHome }) => {
         title="WhatsApp +91 8197007359"
         className="whatsapp-float-chat-btn"
       >
-        <MessageSquare size={isMobile ? 24 : 30} />
+        <FaWhatsapp size={isMobile ? 26 : 32} color="#FFFFFF" />
         <span className="whatsapp-float-online-dot" />
       </button>
     </div>
